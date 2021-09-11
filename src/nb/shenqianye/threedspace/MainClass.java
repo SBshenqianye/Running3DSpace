@@ -1,15 +1,18 @@
 package nb.shenqianye.threedspace;
 
-import java.awt.FlowLayout;
+import java.awt.*;
 import javax.swing.*;
 
 public class MainClass {
     public static void main(String[] args){
         System.out.print("测试\n");
-        NbWindow aframe;
-        aframe = new NbWindow();
-        aframe.createAndShowGUI();
-        aframe.createAndShowDialog(aframe);
+        mainMenuOperation();
+    }
+
+    static void mainMenuOperation() {
+        NbWindow mainwindow = new NbWindow();
+        mainwindow.createAndShowGUI();
+        mainwindow.createAndShowDialog(mainwindow.frame);;
     }
 }
 
@@ -26,13 +29,15 @@ class NbWindow extends JFrame{
         this.frame.setSize(1080, 700);
         this.frame.setLocation(0, 0);
         this.frame.setVisible(true);
+        System.out.print("成功创建一个窗口\n");
     }
     void createAndShowDialog(JFrame inframe){
         JDialog dialog = new JDialog(inframe);
-        dialog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         dialog.setTitle("dialog1");
         dialog.setSize(108, 70);
         dialog.setLocation(108, 70);
         dialog.setVisible(true);
+        System.out.print("成功创建一个对话框\n");
     }
 }
